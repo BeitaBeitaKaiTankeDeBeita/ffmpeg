@@ -1,0 +1,6 @@
+# 将test.mp4视频文件按每10秒生成一个ts文件，最后生成一个m3u8文件，m3u8文件就是ts的索引文件
+ffmpeg -i movie.mp4 -hls_time 10 -hls_list_size 0 -hls_segment_filename ./movie_%05d.ts ./movie.m3u8
+
+-hls_time 设置每片的长度，单位为秒 
+-hls_list_size n: 保存的分片的数量，设置为0表示保存所有分片 
+-hls_segment_filename ：段文件的名称，%05d表示5位数字
